@@ -18,7 +18,7 @@ namespace Plakatowanie
             sw.Flush();
         }
 
-        public static int ReadNumberBlocks()
+        public static int firstLineWithNumberOfBlocks()
         {
 
 
@@ -52,7 +52,7 @@ namespace Plakatowanie
     
 
             StreamReader sr2 = new StreamReader(address);
-            int numberOfBlocks = ReadNumberBlocks();
+            int numberOfBlocks = firstLineWithNumberOfBlocks();
             string tmp = string.Empty;
             string tmp1 = string.Empty;
             string numberTMP =string.Empty;
@@ -74,6 +74,7 @@ namespace Plakatowanie
                 }
                 else
                 {
+                    //porbieramy tylko wyokość bloku, szerokość nie jest istotna
                     licznik2++;
                     if (licznik2 % 2 != 0 && licznik2>1)
                     {
@@ -95,7 +96,7 @@ namespace Plakatowanie
 
             return tab;
         }
-        public static int returnNumberOfPostersOfPosters(int[] tab)
+        public static int returnNumberOfPosters(int[] tab)
         {
             Stack<int> stackOfPosters = new Stack<int>();
             int valOfPosters = 0;
@@ -110,7 +111,7 @@ namespace Plakatowanie
 
             for (int i = 1; i < tabLenght ; i++)
             {
-                //sprawdzamy blok poprzedni jest niższy
+                //sprawdzamy czy blok poprzedni jest niższy
                 if (tab[i] > tab[i-1])
                 {
                     //jeśli tak dodajemy nowy plakat
@@ -166,7 +167,7 @@ namespace Plakatowanie
            ;
 
             DateTime startTime = DateTime.Now;
-            int wynik = OperationsOnPLA.returnNumberOfPostersOfPosters(OperationsOnPLA.tableOfHeights());
+            int wynik = OperationsOnPLA.returnNumberOfPosters(OperationsOnPLA.tableOfHeights());
             OperationsOnPLA.saveToOut(wynik);
             Console.WriteLine("------------------------------------------------------");
 
