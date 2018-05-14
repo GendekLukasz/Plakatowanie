@@ -11,10 +11,10 @@ namespace Plakatowanie
     class OperationsOnPLA
     {
         static string address = "pla.in";
-        public static void saveToOut(int wynik)
+        public static void saveToOut(int Result)
         {
             StreamWriter sw = new StreamWriter("pla.out");
-            sw.WriteLine(wynik);
+            sw.WriteLine(Result);
             sw.Flush();
         }
 
@@ -167,16 +167,16 @@ namespace Plakatowanie
            ;
 
             DateTime startTime = DateTime.Now;
-            int wynik = OperationsOnPLA.returnNumberOfPosters(OperationsOnPLA.tableOfHeights());
-            OperationsOnPLA.saveToOut(wynik);
+            int Result = OperationsOnPLA.returnNumberOfPosters(OperationsOnPLA.tableOfHeights());
+            OperationsOnPLA.saveToOut(Result);
             Console.WriteLine("------------------------------------------------------");
 
-            Console.WriteLine("Wynik = "+ wynik );
+            Console.WriteLine("Wynik = "+ Result );
             DateTime stopTime = DateTime.Now;
 
-            TimeSpan roznica = stopTime - startTime;
+            TimeSpan difference = stopTime - startTime;
             Console.WriteLine("------------------------------------------------------");
-            Console.WriteLine("Czas pracy: " + roznica.TotalMilliseconds);
+            Console.WriteLine("Czas pracy: " + difference.TotalMilliseconds);
 
             Console.WriteLine("------------------------------------------------------");
             //foreach (var item in OperationsOnPLA.tableOfHeights())
